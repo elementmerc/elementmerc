@@ -1,6 +1,6 @@
 ### Hi, I'm Mercury 👋
 
-![Mercury's GitHub stats](https://github-readme-stats.vercel.app/api?username=elementmerc&count_private=true)
+![Mercury's GitHub stats](https://github-readme-stats.vercel.app/api?username=elementmerc&count_private=true&show_icons=true&theme=transparent)
 
 
 <!--
