@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="../assets/terminal.svg" width="100%" alt="Terminal session — whoami, Daniel Iwugo" />
+<img src="../assets/terminal.svg" width="100%" alt="Terminal session — mercury-os boots, guest logs in, and the profile of Daniel Iwugo types itself out" />
 
 <br/>
 
@@ -16,13 +16,13 @@
 
 ---
 
-### `visitor@github:~$ cat ./about.txt`
+### `guest@github:~/profile $ cat ./about.txt`
 
 > Just your friendly neighbourhood hacker.
 
 I take software apart to understand how intrusions really work — then I build tools around what I find and write the whole thing up so it's useful to someone other than me. Breaking things to learn, turning that into tooling, and teaching the rest: that's been the shape of my work the whole way through, whatever the day's target happens to be.
 
-### `visitor@github:~$ ls -la ./projects`
+### `guest@github:~/profile $ ls -la ./projects/`
 
 ```bash
 drwxr-xr-x   anya/            # malware-analysis platform — Rust
@@ -34,7 +34,24 @@ drwxr-xr-x   hacking-tools/   # personal security utilities — Python
 
 → &nbsp;**[anya](https://github.com/elementmerc/anya)** &nbsp;·&nbsp; **[Stegcore](https://github.com/elementmerc/Stegcore)** &nbsp;·&nbsp; **[dct-io](https://github.com/elementmerc/dct-io)** &nbsp;·&nbsp; **[Hacking-Tools](https://github.com/elementmerc/Hacking-Tools)**
 
-### `visitor@github:~$ tail -f ./writing.log`
+### `guest@github:~/profile $ neofetch`
+
+<div align="center">
+
+<img src="https://github-readme-stats.vercel.app/api?username=elementmerc&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&bg_color=00000000&title_color=e0102a&text_color=8a8a8e&icon_color=e0102a" height="165" alt="GitHub stats" />
+<img src="https://github-readme-stats.vercel.app/api/top-langs?username=elementmerc&layout=compact&hide_border=true&bg_color=00000000&title_color=e0102a&text_color=8a8a8e&langs_count=6" height="165" alt="Top languages" />
+
+</div>
+
+### `guest@github:~/profile $ cat ./activity.log`
+
+<div align="center">
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=elementmerc&bg_color=00000000&color=8a8a8e&line=e0102a&point=f4f4f5&area=true&hide_border=true&custom_title=Contribution%20Signal" width="98%" alt="Contribution signal" />
+
+</div>
+
+### `guest@github:~/profile $ tail -f ./writing.log`
 
 <!-- AUTO:WRITING:START — regenerated automatically; entries below are a live snapshot -->
 ```log
@@ -46,17 +63,8 @@ drwxr-xr-x   hacking-tools/   # personal security utilities — Python
 &nbsp;&nbsp;**Read:** [LLMs &amp; Cybersecurity](https://www.freecodecamp.org/news/large-language-models-and-cybersecurity/) &nbsp;·&nbsp; [Social-media attacks](https://www.freecodecamp.org/news/how-to-protect-social-media-accounts-from-attackers/) &nbsp;·&nbsp; [Linux for Hackers](https://www.freecodecamp.org/news/linux-basics/) &nbsp;·&nbsp; [Steganography](https://www.freecodecamp.org/news/what-is-steganography-hide-data-inside-data/)
 <!-- AUTO:WRITING:END -->
 
-### `visitor@github:~$ neofetch --stats`
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=elementmerc&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&bg_color=0b0b0c&title_color=e0102a&text_color=c4c4c6&icon_color=e0102a" height="165" alt="GitHub stats" />
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=elementmerc&hide_border=true&background=0b0b0c&stroke=2e2e30&ring=e0102a&fire=e0102a&currStreakNum=f4f4f5&sideNums=f4f4f5&currStreakLabel=e0102a&sideLabels=c4c4c6&dates=8a8a8e&titleColor=f4f4f5" height="165" alt="Streak" />
-
-</div>
-
 ---
 
 <div align="center">
-<sub><code>visitor@github:~$ logout — connection to mercury.os closed.</code></sub>
+<sub><code>guest@github:~/profile $ logout — connection to mercury.os closed.</code></sub>
 </div>
