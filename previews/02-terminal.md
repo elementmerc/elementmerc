@@ -36,20 +36,20 @@ drwxr-xr-x   hacking-tools/   # personal security utilities — Python
 
 ### `guest@github:~/profile $ neofetch`
 
-<div align="center">
+```text
+operator   Daniel Iwugo  —  @elementmerc
+role       malware researcher · tool builder · writer
+langs      rust · python
+focus      malware analysis · reverse engineering · steganography
+channels   danieliwugo.com · The Malware Files · freeCodeCamp
+node       0xMERCURY · UTC+01:00 · online
+```
 
-<img src="https://github-readme-stats.vercel.app/api?username=elementmerc&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&bg_color=00000000&title_color=e0102a&text_color=8a8a8e&icon_color=e0102a" height="165" alt="GitHub stats" />
-<img src="https://github-readme-stats.vercel.app/api/top-langs?username=elementmerc&layout=compact&hide_border=true&bg_color=00000000&title_color=e0102a&text_color=8a8a8e&langs_count=6" height="165" alt="Top languages" />
-
-</div>
+<sub>↳ Live GitHub stats + language graphs render here in the shipped README — generated <b>inside this repo</b> by a scheduled GitHub Action, so there is no third-party service to break at render time.</sub>
 
 ### `guest@github:~/profile $ cat ./activity.log`
 
-<div align="center">
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=elementmerc&bg_color=00000000&color=8a8a8e&line=e0102a&point=f4f4f5&area=true&hide_border=true&custom_title=Contribution%20Signal" width="98%" alt="Contribution signal" />
-
-</div>
+<sub>↳ The contribution-activity graph renders here in the shipped README — produced in-repo by the same scheduled Action.</sub>
 
 ### `guest@github:~/profile $ tail -f ./writing.log`
 
