@@ -1,19 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-label="MERCURYOS secure terminal — power-on, keyboard-only operator login, and the home screen of Daniel Iwugo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-label="MERCURYOS — power-on, a Linux boot that stalls, operator login, and the session of Daniel Iwugo typing itself out">
   <defs>
     <filter id="mg" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="2.2" result="b"/>
+      <feGaussianBlur stdDeviation="2.3" result="b"/>
       <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <clipPath id="mbody"><rect x="8" y="47" width="1184" height="301"/></clipPath>
-    <clipPath id="cOpid"><rect x="494" y="151" width="0" height="22"><animate attributeName="width" values="0.0;9.6;19.2;28.8;38.4;48.0;57.6;67.2;76.8;86.4;96.0;105.6" keyTimes="0.0000;0.1701;0.2450;0.3230;0.3767;0.5343;0.6356;0.7154;0.8133;0.8767;0.9467;1.0000" calcMode="discrete" begin="5s" dur="2.8s" fill="freeze"/></rect></clipPath>
-    <clipPath id="cPass"><rect x="494" y="191" width="0" height="22"><animate attributeName="width" values="0.0;9.6;19.2;28.8;38.4;48.0;57.6;67.2;76.8;86.4;96.0;105.6;115.2" keyTimes="0.0000;0.1621;0.2462;0.3340;0.3834;0.4485;0.5220;0.6007;0.6927;0.7508;0.8354;0.9154;1.0000" calcMode="discrete" begin="9s" dur="2.7s" fill="freeze"/></rect></clipPath>
+    <clipPath id="cOpid"><rect x="494" y="151" width="0" height="22"><animate attributeName="width" values="0.0;9.6;19.2;28.8;38.4;48.0;57.6;67.2;76.8;86.4;96.0;105.6" keyTimes="0.0000;0.1600;0.2310;0.3256;0.4102;0.5777;0.6751;0.7367;0.7937;0.8641;0.9196;1.0000" calcMode="discrete" begin="8s" dur="1.6s" fill="freeze"/></rect></clipPath>
+    <clipPath id="cPass"><rect x="494" y="191" width="0" height="22"><animate attributeName="width" values="0.0;9.6;19.2;28.8;38.4;48.0;57.6;67.2;76.8;86.4;96.0;105.6;115.2" keyTimes="0.0000;0.2299;0.2807;0.3465;0.4046;0.4865;0.5715;0.6341;0.7505;0.8284;0.8774;0.9425;1.0000" calcMode="discrete" begin="10.2s" dur="1.45s" fill="freeze"/></rect></clipPath>
+    <clipPath id="c1"><rect x="239" y="67" width="0" height="15"><animate attributeName="width" values="0.0;7.8;15.6;23.4;31.2;39.0;46.8;54.6;62.4;70.2;78.0;85.8;93.6;101.4;109.2;117.0;124.8;132.6;140.4;148.2;156.0;163.8;171.6;179.4;187.2;195.0;202.8" keyTimes="0.0000;0.1115;0.1413;0.1614;0.1924;0.2698;0.2971;0.3223;0.4424;0.4674;0.4912;0.5256;0.5474;0.5749;0.6073;0.6289;0.6829;0.7158;0.7377;0.7682;0.7973;0.8162;0.8400;0.8692;0.9472;0.9788;1.0000" calcMode="discrete" begin="13.7s" dur="1.1s" fill="freeze"/></rect></clipPath>
+    <clipPath id="c2"><rect x="239" y="130" width="0" height="15"><animate attributeName="width" values="0.0;7.8;15.6;23.4;31.2;39.0;46.8" keyTimes="0.0000;0.3248;0.4263;0.7162;0.8171;0.9222;1.0000" calcMode="discrete" begin="15.62s" dur=".38s" fill="freeze"/></rect></clipPath>
+    <clipPath id="c3"><rect x="239" y="193" width="0" height="15"><animate attributeName="width" values="0.0;7.8;15.6;23.4;31.2;39.0;46.8;54.6;62.4;70.2;78.0;85.8;93.6;101.4;109.2;117.0" keyTimes="0.0000;0.0674;0.2286;0.2551;0.2864;0.4234;0.4899;0.5915;0.6184;0.6575;0.6984;0.7392;0.7949;0.8250;0.9751;1.0000" calcMode="discrete" begin="16.75s" dur=".62s" fill="freeze"/></rect></clipPath>
+    <clipPath id="c4"><rect x="239" y="256" width="0" height="15"><animate attributeName="width" values="0.0;7.8;15.6;23.4;31.2;39.0;46.8;54.6;62.4;70.2;78.0;85.8;93.6;101.4;109.2" keyTimes="0.0000;0.1012;0.1454;0.1946;0.4009;0.5159;0.5655;0.6040;0.6626;0.7193;0.7592;0.7977;0.8368;0.8812;1.0000" calcMode="discrete" begin="18.16s" dur=".5s" fill="freeze"/></rect></clipPath>
+    <clipPath id="cBar1"><rect x="51.8" y="88" width="0" height="15"><animate attributeName="width" values="0.0;7.8;15.6;23.4;31.2;39.0;46.8;54.6;62.4;70.2;78.0;85.8;93.6;101.4;109.2;117.0;124.8;132.6;140.4;148.2;156.0;163.8;171.6;179.4;187.2" keyTimes="0.0000;0.1222;0.1592;0.1926;0.2801;0.3130;0.4030;0.4329;0.4606;0.4963;0.5376;0.5741;0.6086;0.6305;0.6549;0.6895;0.7279;0.7716;0.8018;0.8367;0.8676;0.8936;0.9141;0.9528;1.0000" calcMode="discrete" begin="14.85s" dur=".45s" fill="freeze"/></rect></clipPath>
+    <clipPath id="cBar2"><rect x="51.8" y="151" width="0" height="15"><animate attributeName="width" values="0.0;7.8;15.6;23.4;31.2;39.0;46.8;54.6;62.4;70.2;78.0;85.8;93.6;101.4;109.2;117.0;124.8;132.6;140.4;148.2;156.0;163.8;171.6;179.4;187.2" keyTimes="0.0000;0.0148;0.0382;0.1163;0.1307;0.1551;0.2663;0.2887;0.3119;0.3437;0.3719;0.4875;0.5021;0.5341;0.5555;0.5881;0.7085;0.7312;0.7613;0.7932;0.8252;0.8500;0.9528;0.9839;1.0000" calcMode="discrete" begin="16.05s" dur=".38s" fill="freeze"/></rect></clipPath>
+    <clipPath id="cBar3"><rect x="51.8" y="214" width="0" height="15"><animate attributeName="width" values="0.0;7.8;15.6;23.4;31.2;39.0;46.8;54.6;62.4;70.2;78.0;85.8;93.6;101.4;109.2;117.0;124.8;132.6;140.4;148.2;156.0;163.8;171.6;179.4;187.2" keyTimes="0.0000;0.0277;0.0781;0.1085;0.1428;0.2594;0.2882;0.3141;0.3381;0.3670;0.4728;0.5183;0.5540;0.5961;0.6186;0.6490;0.6867;0.7111;0.7507;0.7987;0.8378;0.8666;0.9116;0.9491;1.0000" calcMode="discrete" begin="17.42s" dur=".42s" fill="freeze"/></rect></clipPath>
+    <clipPath id="cBar4"><rect x="51.8" y="277" width="0" height="15"><animate attributeName="width" values="0.0;7.8;15.6;23.4;31.2;39.0;46.8;54.6;62.4;70.2;78.0;85.8;93.6;101.4;109.2;117.0;124.8;132.6;140.4;148.2;156.0;163.8;171.6;179.4;187.2" keyTimes="0.0000;0.0122;0.0255;0.0443;0.0686;0.0819;0.0958;0.1089;0.1257;0.1513;0.1678;0.2299;0.3264;0.3494;0.3661;0.4718;0.4932;0.5841;0.6089;0.6782;0.7432;0.8225;0.8767;0.9749;1.0000" calcMode="discrete" begin="18.71s" dur=".38s" fill="freeze"/></rect></clipPath>
     <style>text{font-family:ui-monospace,'SF Mono','Cascadia Mono','DejaVu Sans Mono',Consolas,monospace}</style>
   </defs>
 
   <!-- screen -->
   <rect x="6" y="6" width="1188" height="348" rx="16" fill="#0b0b0c" stroke="#2e2e30" stroke-width="1.5"/>
-
-  <!-- OS chrome strip -->
   <text x="40" y="32" font-size="14" letter-spacing="3" fill="#f4f4f5">MERCURYOS</text>
   <circle cx="1014" cy="27.5" r="3.5" fill="#e0102a"><animate attributeName="opacity" values="1;.3;1" dur="2s" repeatCount="indefinite"/></circle>
   <text x="1160" y="32" text-anchor="end" font-size="11.5" letter-spacing="2" fill="#8a8a8e">SECURE NODE · 0xMERCURY · UTC+01:00</text>
@@ -21,57 +27,131 @@
 
   <g clip-path="url(#mbody)">
 
-    <!-- ============ SCENE A — POWER ON ============ -->
+    <!-- ============ 1 · POWER ON ============ -->
     <g opacity="1">
-      <animate attributeName="opacity" from="1" to="0" begin="3.2s" dur=".3s" fill="freeze"/>
+      <animate attributeName="opacity" from="1" to="0" begin="2.45s" dur=".3s" fill="freeze"/>
       <rect x="8" y="47" width="1184" height="301" fill="#0b0b0c"/>
-      <text x="600" y="158" text-anchor="middle" font-size="40" letter-spacing="11" fill="#f4f4f5" opacity="0" filter="url(#mg)"><set attributeName="opacity" to="1" begin=".4s"/>MERCURYOS</text>
-      <text x="600" y="196" text-anchor="middle" font-size="12.5" letter-spacing="1.5" fill="#8a8a8e" opacity="0"><set attributeName="opacity" to="1" begin="1s"/>keyboard-only terminal — there is no pointer here, and you won't need one.</text>
-      <rect x="450" y="226" width="300" height="5" rx="2.5" fill="#1b1b1e" stroke="#2e2e30" stroke-width="1" opacity="0"><set attributeName="opacity" to="1" begin="1.6s"/></rect>
-      <rect x="450" y="226" width="0" height="5" rx="2.5" fill="#e0102a" opacity="0"><set attributeName="opacity" to="1" begin="1.6s"/><animate attributeName="width" from="0" to="300" begin="1.6s" dur="1.3s" fill="freeze"/></rect>
-      <text x="600" y="254" text-anchor="middle" font-size="11" letter-spacing="2" fill="#6f6f73" opacity="0"><set attributeName="opacity" to="1" begin="3s"/>secure environment ready</text>
+      <text x="600" y="174" text-anchor="middle" font-size="40" letter-spacing="11" fill="#f4f4f5" opacity="0" filter="url(#mg)"><set attributeName="opacity" to="1" begin=".4s"/>MERCURYOS</text>
+      <rect x="450" y="210" width="300" height="5" rx="2.5" fill="#1b1b1e" stroke="#2e2e30" stroke-width="1" opacity="0"><set attributeName="opacity" to="1" begin=".9s"/></rect>
+      <rect x="450" y="210" width="0" height="5" rx="2.5" fill="#e0102a" opacity="0"><set attributeName="opacity" to="1" begin=".9s"/><animate attributeName="width" from="0" to="300" begin=".9s" dur="1.3s" fill="freeze"/></rect>
+      <text x="600" y="240" text-anchor="middle" font-size="11" letter-spacing="2" fill="#6f6f73" opacity="0"><set attributeName="opacity" to="1" begin="2.25s"/>secure environment ready</text>
     </g>
 
-    <!-- ============ SCENE B — OPERATOR LOGIN ============ -->
+    <!-- ============ 2 · LINUX BOOT (scrolls, stalls, then hard cut) ============ -->
     <g opacity="0">
-      <set attributeName="opacity" to="1" begin="3.4s"/>
-      <set attributeName="opacity" to="0" begin="14.95s"/>
-      <rect x="8" y="47" width="1184" height="301" fill="#0b0b0c"/>
-      <text x="600" y="96" text-anchor="middle" font-size="13" letter-spacing="3" fill="#8a8a8e" opacity="0"><set attributeName="opacity" to="1" begin="3.8s"/>MERCURYOS // SECURE TERMINAL</text>
-      <line x1="360" y1="116" x2="840" y2="116" stroke="#2e2e30" stroke-width="1.5" stroke-dasharray="480" stroke-dashoffset="480" opacity="0"><set attributeName="opacity" to="1" begin="4s"/><animate attributeName="stroke-dashoffset" from="480" to="0" begin="4s" dur=".6s" fill="freeze"/></line>
+      <animate attributeName="opacity" from="0" to="1" begin="2.5s" dur=".25s" fill="freeze"/>
+      <set attributeName="opacity" to="0" begin="6.9s"/>
+      <g font-size="12" fill="#6f6f73">
+        <animateTransform attributeName="transform" type="translate" values="0 260;0 -109;0 -109;0 -177" keyTimes="0;0.5;0.8;1" dur="4s" begin="2.55s" fill="freeze"/>
+        <text x="44" y="70"><tspan fill="#4e4e52">[    0.000000]</tspan> Linux version 6.x.0-mercury (gcc 13.2.0) #1 SMP</text>
+        <text x="44" y="87"><tspan fill="#4e4e52">[    0.000000]</tspan> Command line: BOOT_IMAGE=/vmlinuz ro lockdown=confidentiality</text>
+        <text x="44" y="104"><tspan fill="#4e4e52">[    0.044192]</tspan> x86/cpu: mitigations: spectre_v2, meltdown, retbleed active</text>
+        <text x="44" y="121"><tspan fill="#4e4e52">[    0.118734]</tspan> Memory: 16320124K available / encrypted swap online</text>
+        <text x="44" y="138"><tspan fill="#4e4e52">[    0.402551]</tspan> random: crng init done — entropy pool sealed</text>
+        <text x="44" y="155"><tspan fill="#4e4e52">[    0.660018]</tspan> cryptd: hardware AES-NI engine registered</text>
+        <text x="44" y="172"><tspan fill="#4e4e52">[    0.884412]</tspan> EXT4-fs (sec0): mounted filesystem with ordered data mode</text>
+        <text x="44" y="189"><tspan fill="#4e4e52">[    1.013998]</tspan> systemd[1]: systemd 255 running in system mode</text>
+        <text x="44" y="206" fill="#8a8a8e">         Welcome to Mercury OS 6.x (rolling)!</text>
+        <text x="44" y="223"><tspan fill="#9a9a9e">[  OK  ]</tspan> Created slice Virtual Machine and Container Slice</text>
+        <text x="44" y="240"><tspan fill="#9a9a9e">[  OK  ]</tspan> Reached target Local Encrypted Volumes</text>
+        <text x="44" y="257"><tspan fill="#9a9a9e">[  OK  ]</tspan> Mounted /vault — LUKS encrypted volume</text>
+        <text x="44" y="274"><tspan fill="#9a9a9e">[  OK  ]</tspan> Started Journal Service</text>
+        <text x="44" y="291"><tspan fill="#9a9a9e">[  OK  ]</tspan> Reached target Local File Systems</text>
+        <text x="44" y="308"><tspan fill="#9a9a9e">[  OK  ]</tspan> Started Network Time Synchronisation</text>
+        <text x="44" y="325" fill="#5a5a5e">         Starting Disassembly &amp; analysis backend...</text>
+        <text x="44" y="342" fill="#5a5a5e">         Starting Intrusion detection (mercury-ids)...</text>
+        <g>
+          <set attributeName="opacity" to="0" begin="5.75s"/>
+          <text x="44" y="359" fill="#5a5a5e">[</text>
+          <text x="91" y="359" fill="#5a5a5e">]</text>
+          <rect y="349" width="11" height="12" fill="#e0102a"><animate attributeName="x" values="52;78;52" dur=".55s" begin="4.1s" repeatCount="3"/></rect>
+          <text x="106" y="359" fill="#8a8a8e">A start job is running for mercury-ids.service</text>
+          <text x="446" y="359" fill="#5a5a5e" opacity="0"><set attributeName="opacity" to="1" begin="4.65s"/><set attributeName="opacity" to="0" begin="4.95s"/>(02s / 1min 30s)</text>
+          <text x="446" y="359" fill="#5a5a5e" opacity="0"><set attributeName="opacity" to="1" begin="4.95s"/><set attributeName="opacity" to="0" begin="5.25s"/>(04s / 1min 30s)</text>
+          <text x="446" y="359" fill="#6f6f73" opacity="0"><set attributeName="opacity" to="1" begin="5.25s"/><set attributeName="opacity" to="0" begin="5.55s"/>(07s / 1min 30s)</text>
+          <text x="446" y="359" fill="#6f6f73" opacity="0"><set attributeName="opacity" to="1" begin="5.55s"/><set attributeName="opacity" to="0" begin="5.75s"/>(09s / 1min 30s)</text>
+        </g>
+        <text x="44" y="359" opacity="0"><set attributeName="opacity" to="1" begin="5.75s"/><tspan fill="#9a9a9e">[  OK  ]</tspan> Started Intrusion detection (mercury-ids)</text>
+        <g opacity="0">
+          <set attributeName="opacity" to="1" begin="5.75s"/>
+          <text x="44" y="376"><tspan fill="#9a9a9e">[  OK  ]</tspan> Started YARA signature daemon</text>
+          <text x="44" y="393"><tspan fill="#9a9a9e">[  OK  ]</tspan> Started Threat Telemetry collector</text>
+          <text x="44" y="410"><tspan fill="#9a9a9e">[  OK  ]</tspan> Started OpenSSH server daemon</text>
+          <text x="44" y="427"><tspan fill="#9a9a9e">[  OK  ]</tspan> Started Disassembly &amp; analysis backend</text>
+          <text x="44" y="444"><tspan fill="#9a9a9e">[  OK  ]</tspan> Reached target Cryptographic Services</text>
+          <text x="44" y="461"><tspan fill="#9a9a9e">[  OK  ]</tspan> Reached target Multi-User System</text>
+          <text x="44" y="478"><tspan fill="#9a9a9e">[  OK  ]</tspan> Started Getty on tty1...tty6</text>
+          <text x="44" y="495" fill="#c4c4c6">         mercury-os 6.x — 41 services started, 0 failed</text>
+        </g>
+      </g>
+    </g>
 
-      <text x="360" y="165" font-size="16" fill="#8a8a8e" opacity="0"><set attributeName="opacity" to="1" begin="4.5s"/>operator id:</text>
+    <!-- ============ 3 · OPERATOR LOGIN ============ -->
+    <g opacity="0">
+      <set attributeName="opacity" to="1" begin="6.9s"/>
+      <set attributeName="opacity" to="0" begin="13.5s"/>
+      <rect x="8" y="47" width="1184" height="301" fill="#0b0b0c"/>
+      <text x="600" y="96" text-anchor="middle" font-size="13" letter-spacing="3" fill="#8a8a8e" opacity="0"><set attributeName="opacity" to="1" begin="7.1s"/>MERCURYOS // SECURE TERMINAL</text>
+      <line x1="360" y1="116" x2="840" y2="116" stroke="#2e2e30" stroke-width="1.5" stroke-dasharray="480" stroke-dashoffset="480" opacity="0"><set attributeName="opacity" to="1" begin="7.3s"/><animate attributeName="stroke-dashoffset" from="480" to="0" begin="7.3s" dur=".5s" fill="freeze"/></line>
+
+      <text x="360" y="165" font-size="16" fill="#8a8a8e" opacity="0"><set attributeName="opacity" to="1" begin="7.7s"/>operator id:</text>
       <text x="494" y="165" font-size="16" fill="#f4f4f5" clip-path="url(#cOpid)">elementmerc</text>
-      <rect y="150" width="10" height="19" fill="#e0102a" opacity="0"><set attributeName="opacity" to="1" begin="4.95s"/><animate attributeName="x" values="494.0;503.6;513.2;522.8;532.4;542.0;551.6;561.2;570.8;580.4;590.0;599.6" keyTimes="0.0000;0.1701;0.2450;0.3230;0.3767;0.5343;0.6356;0.7154;0.8133;0.8767;0.9467;1.0000" calcMode="discrete" begin="5s" dur="2.8s" fill="freeze"/><set attributeName="opacity" to="0" begin="7.85s"/></rect>
+      <rect y="150" width="10" height="19" fill="#e0102a" opacity="0"><set attributeName="opacity" to="1" begin="7.95s"/><animate attributeName="x" values="494.0;503.6;513.2;522.8;532.4;542.0;551.6;561.2;570.8;580.4;590.0;599.6" keyTimes="0.0000;0.1600;0.2310;0.3256;0.4102;0.5777;0.6751;0.7367;0.7937;0.8641;0.9196;1.0000" calcMode="discrete" begin="8s" dur="1.6s" fill="freeze"/><set attributeName="opacity" to="0" begin="9.65s"/></rect>
 
-      <text x="360" y="205" font-size="16" fill="#8a8a8e" opacity="0"><set attributeName="opacity" to="1" begin="8.4s"/>passphrase:</text>
+      <text x="360" y="205" font-size="16" fill="#8a8a8e" opacity="0"><set attributeName="opacity" to="1" begin="9.9s"/>passphrase:</text>
       <text x="494" y="205" font-size="16" fill="#8a8a8e" clip-path="url(#cPass)">************</text>
-      <rect y="190" width="10" height="19" fill="#e0102a" opacity="0"><set attributeName="opacity" to="1" begin="8.95s"/><animate attributeName="x" values="494.0;503.6;513.2;522.8;532.4;542.0;551.6;561.2;570.8;580.4;590.0;599.6;609.2" keyTimes="0.0000;0.1621;0.2462;0.3340;0.3834;0.4485;0.5220;0.6007;0.6927;0.7508;0.8354;0.9154;1.0000" calcMode="discrete" begin="9s" dur="2.7s" fill="freeze"/><set attributeName="opacity" to="0" begin="11.75s"/></rect>
+      <rect y="190" width="10" height="19" fill="#e0102a" opacity="0"><set attributeName="opacity" to="1" begin="10.15s"/><animate attributeName="x" values="494.0;503.6;513.2;522.8;532.4;542.0;551.6;561.2;570.8;580.4;590.0;599.6;609.2" keyTimes="0.0000;0.2299;0.2807;0.3465;0.4046;0.4865;0.5715;0.6341;0.7505;0.8284;0.8774;0.9425;1.0000" calcMode="discrete" begin="10.2s" dur="1.45s" fill="freeze"/><set attributeName="opacity" to="0" begin="11.7s"/></rect>
 
-      <text x="360" y="262" font-size="15" fill="#6f6f73" opacity="0"><set attributeName="opacity" to="1" begin="12.3s"/><tspan fill="#e0102a">&gt; </tspan>authenticating credentials</text>
-      <text x="612" y="262" font-size="15" fill="#6f6f73" opacity="0"><set attributeName="opacity" to="1" begin="12.6s"/>.</text>
-      <text x="621" y="262" font-size="15" fill="#6f6f73" opacity="0"><set attributeName="opacity" to="1" begin="13s"/>.</text>
-      <text x="630" y="262" font-size="15" fill="#6f6f73" opacity="0"><set attributeName="opacity" to="1" begin="13.4s"/>.</text>
-      <text x="360" y="298" font-size="15" opacity="0"><set attributeName="opacity" to="1" begin="14.2s"/><tspan fill="#e0102a">&gt; ACCESS GRANTED</tspan><tspan fill="#c4c4c6"> — welcome back, operator.</tspan></text>
+      <text x="360" y="262" font-size="15" fill="#6f6f73" opacity="0"><set attributeName="opacity" to="1" begin="11.9s"/><tspan fill="#e0102a">&gt; </tspan>authenticating credentials</text>
+      <text x="612" y="262" font-size="15" fill="#6f6f73" opacity="0"><set attributeName="opacity" to="1" begin="12s"/>.</text>
+      <text x="621" y="262" font-size="15" fill="#6f6f73" opacity="0"><set attributeName="opacity" to="1" begin="12.25s"/>.</text>
+      <text x="630" y="262" font-size="15" fill="#6f6f73" opacity="0"><set attributeName="opacity" to="1" begin="12.5s"/>.</text>
+      <text x="360" y="298" font-size="15" opacity="0"><set attributeName="opacity" to="1" begin="13s"/><tspan fill="#e0102a">&gt; ACCESS GRANTED</tspan><tspan fill="#c4c4c6"> — welcome back, operator.</tspan></text>
     </g>
 
-    <!-- ============ SCENE C — HOME SCREEN ============ -->
-    <g opacity="0">
-      <set attributeName="opacity" to="1" begin="15s"/>
+    <!-- ============ 4 · SESSION (each command: type -> bar -> output) ============ -->
+    <g opacity="0" font-size="13">
+      <set attributeName="opacity" to="1" begin="13.5s"/>
       <rect x="8" y="47" width="1184" height="301" fill="#0b0b0c"/>
-      <text x="360" y="108" font-size="15" letter-spacing="2" fill="#f4f4f5" opacity="0"><set attributeName="opacity" to="1" begin="15.3s"/>HOME</text>
-      <text x="840" y="108" text-anchor="end" font-size="15" fill="#8a8a8e" opacity="0"><set attributeName="opacity" to="1" begin="15.3s"/>operator // <tspan fill="#f4f4f5">Daniel Iwugo</tspan></text>
-      <line x1="360" y1="124" x2="840" y2="124" stroke="#e0102a" stroke-width="2" stroke-dasharray="480" stroke-dashoffset="480" opacity="0"><set attributeName="opacity" to="1" begin="15.6s"/><animate attributeName="stroke-dashoffset" from="480" to="0" begin="15.6s" dur=".7s" fill="freeze"/></line>
 
-      <rect x="360" y="146" width="2.5" height="132" fill="#e0102a" opacity="0"><set attributeName="opacity" to="1" begin="16s"/></rect>
-      <text x="380" y="166" font-size="15" opacity="0"><set attributeName="opacity" to="1" begin="16s"/><tspan fill="#8a8a8e">IDENTITY      </tspan><tspan fill="#f4f4f5">hacker · writer · creator</tspan></text>
-      <text x="380" y="196" font-size="15" opacity="0"><set attributeName="opacity" to="1" begin="16.4s"/><tspan fill="#8a8a8e">DISCIPLINE    </tspan><tspan fill="#f4f4f5">malware research · reverse engineering</tspan></text>
-      <text x="380" y="226" font-size="15" opacity="0"><set attributeName="opacity" to="1" begin="16.8s"/><tspan fill="#8a8a8e">TOOLCHAIN     </tspan><tspan fill="#f4f4f5">rust · python · yara · steganography</tspan></text>
-      <text x="380" y="256" font-size="15" opacity="0"><set attributeName="opacity" to="1" begin="17.2s"/><tspan fill="#8a8a8e">ACTIVE WORK   </tspan><tspan fill="#e0102a">anya</tspan><tspan fill="#f4f4f5"> · </tspan><tspan fill="#e0102a">stegcore</tspan><tspan fill="#f4f4f5"> · </tspan><tspan fill="#e0102a">dct-io</tspan></text>
+      <text x="44" y="78" opacity="0"><set attributeName="opacity" to="1" begin="13.6s"/><tspan fill="#8a8a8e">elementmerc</tspan><tspan fill="#5a5a5e">@</tspan><tspan fill="#e0102a">mercuryos</tspan><tspan fill="#f4f4f5">:~$ </tspan></text>
+      <text x="239" y="78" fill="#f4f4f5" clip-path="url(#c1)">ssh elementmerc@mercury.os</text>
+      <rect y="67" width="8" height="14" fill="#e0102a" opacity="0"><set attributeName="opacity" to="1" begin="13.65s"/><animate attributeName="x" values="239.0;246.8;254.6;262.4;270.2;278.0;285.8;293.6;301.4;309.2;317.0;324.8;332.6;340.4;348.2;356.0;363.8;371.6;379.4;387.2;395.0;402.8;410.6;418.4;426.2;434.0;441.8" keyTimes="0.0000;0.1115;0.1413;0.1614;0.1924;0.2698;0.2971;0.3223;0.4424;0.4674;0.4912;0.5256;0.5474;0.5749;0.6073;0.6289;0.6829;0.7158;0.7377;0.7682;0.7973;0.8162;0.8400;0.8692;0.9472;0.9788;1.0000" calcMode="discrete" begin="13.7s" dur="1.1s" fill="freeze"/><set attributeName="opacity" to="0" begin="14.8s"/></rect>
+      <g opacity="0"><set attributeName="opacity" to="1" begin="14.85s"/>
+        <text x="44" y="99" fill="#5a5a5e">[</text><text x="239" y="99" fill="#5a5a5e">]</text>
+        <text x="51.8" y="99" fill="#e0102a" clip-path="url(#cBar1)">========================</text>
+      </g>
+      <text x="44" y="120" fill="#6f6f73" opacity="0"><set attributeName="opacity" to="1" begin="15.4s"/>  · secure channel established — UTC+01:00 · node <tspan fill="#c4c4c6">0xMERCURY</tspan></text>
 
-      <line x1="360" y1="288" x2="840" y2="288" stroke="#2e2e30" stroke-width="1.5" opacity="0"><set attributeName="opacity" to="1" begin="17.7s"/></line>
-      <text x="360" y="312" font-size="12" letter-spacing="1.5" fill="#6f6f73" opacity="0"><set attributeName="opacity" to="1" begin="18s"/>session secure · keyboard-only · editor @ The Malware Files</text>
-      <rect x="846" y="300" width="9" height="16" fill="#e0102a" opacity="0"><animate attributeName="opacity" values="1;1;0;0" dur="1.06s" begin="18.4s" repeatCount="indefinite" calcMode="discrete"/></rect>
+      <text x="44" y="141" opacity="0"><set attributeName="opacity" to="1" begin="15.55s"/><tspan fill="#8a8a8e">elementmerc</tspan><tspan fill="#5a5a5e">@</tspan><tspan fill="#e0102a">mercuryos</tspan><tspan fill="#f4f4f5">:~$ </tspan></text>
+      <text x="239" y="141" fill="#f4f4f5" clip-path="url(#c2)">whoami</text>
+      <rect y="130" width="8" height="14" fill="#e0102a" opacity="0"><set attributeName="opacity" to="1" begin="15.57s"/><animate attributeName="x" values="239.0;246.8;254.6;262.4;270.2;278.0;285.8" keyTimes="0.0000;0.3248;0.4263;0.7162;0.8171;0.9222;1.0000" calcMode="discrete" begin="15.62s" dur=".38s" fill="freeze"/><set attributeName="opacity" to="0" begin="16s"/></rect>
+      <g opacity="0"><set attributeName="opacity" to="1" begin="16.05s"/>
+        <text x="44" y="162" fill="#5a5a5e">[</text><text x="239" y="162" fill="#5a5a5e">]</text>
+        <text x="51.8" y="162" fill="#e0102a" clip-path="url(#cBar2)">========================</text>
+      </g>
+      <text x="44" y="183" opacity="0"><set attributeName="opacity" to="1" begin="16.53s"/>  <tspan fill="#e0102a" font-weight="700" filter="url(#mg)">Daniel Iwugo</tspan><tspan fill="#f4f4f5">  — hacker // writer // creator</tspan></text>
+
+      <text x="44" y="204" opacity="0"><set attributeName="opacity" to="1" begin="16.68s"/><tspan fill="#8a8a8e">elementmerc</tspan><tspan fill="#5a5a5e">@</tspan><tspan fill="#e0102a">mercuryos</tspan><tspan fill="#f4f4f5">:~$ </tspan></text>
+      <text x="239" y="204" fill="#f4f4f5" clip-path="url(#c3)">cat ./about.txt</text>
+      <rect y="193" width="8" height="14" fill="#e0102a" opacity="0"><set attributeName="opacity" to="1" begin="16.7s"/><animate attributeName="x" values="239.0;246.8;254.6;262.4;270.2;278.0;285.8;293.6;301.4;309.2;317.0;324.8;332.6;340.4;348.2;356.0" keyTimes="0.0000;0.0674;0.2286;0.2551;0.2864;0.4234;0.4899;0.5915;0.6184;0.6575;0.6984;0.7392;0.7949;0.8250;0.9751;1.0000" calcMode="discrete" begin="16.75s" dur=".62s" fill="freeze"/><set attributeName="opacity" to="0" begin="17.37s"/></rect>
+      <g opacity="0"><set attributeName="opacity" to="1" begin="17.42s"/>
+        <text x="44" y="225" fill="#5a5a5e">[</text><text x="239" y="225" fill="#5a5a5e">]</text>
+        <text x="51.8" y="225" fill="#e0102a" clip-path="url(#cBar3)">========================</text>
+      </g>
+      <text x="44" y="246" fill="#c4c4c6" opacity="0"><set attributeName="opacity" to="1" begin="17.94s"/>  malware researcher · editor @ <tspan fill="#f4f4f5">The Malware Files</tspan> · freeCodeCamp author</text>
+
+      <text x="44" y="267" opacity="0"><set attributeName="opacity" to="1" begin="18.09s"/><tspan fill="#8a8a8e">elementmerc</tspan><tspan fill="#5a5a5e">@</tspan><tspan fill="#e0102a">mercuryos</tspan><tspan fill="#f4f4f5">:~$ </tspan></text>
+      <text x="239" y="267" fill="#f4f4f5" clip-path="url(#c4)">ls ./projects/</text>
+      <rect y="256" width="8" height="14" fill="#e0102a" opacity="0"><set attributeName="opacity" to="1" begin="18.11s"/><animate attributeName="x" values="239.0;246.8;254.6;262.4;270.2;278.0;285.8;293.6;301.4;309.2;317.0;324.8;332.6;340.4;348.2" keyTimes="0.0000;0.1012;0.1454;0.1946;0.4009;0.5159;0.5655;0.6040;0.6626;0.7193;0.7592;0.7977;0.8368;0.8812;1.0000" calcMode="discrete" begin="18.16s" dur=".5s" fill="freeze"/><set attributeName="opacity" to="0" begin="18.66s"/></rect>
+      <g opacity="0"><set attributeName="opacity" to="1" begin="18.71s"/>
+        <text x="44" y="288" fill="#5a5a5e">[</text><text x="239" y="288" fill="#5a5a5e">]</text>
+        <text x="51.8" y="288" fill="#e0102a" clip-path="url(#cBar4)">========================</text>
+      </g>
+      <text x="44" y="309" opacity="0"><set attributeName="opacity" to="1" begin="19.19s"/>  <tspan fill="#e0102a">anya/  stegcore/  dct-io/  </tspan><tspan fill="#8a8a8e">hacking-tools/</tspan></text>
+
+      <text x="44" y="330" opacity="0"><set attributeName="opacity" to="1" begin="19.35s"/><tspan fill="#8a8a8e">elementmerc</tspan><tspan fill="#5a5a5e">@</tspan><tspan fill="#e0102a">mercuryos</tspan><tspan fill="#f4f4f5">:~$ </tspan></text>
+      <rect x="239" y="319" width="8" height="14" fill="#e0102a" opacity="0"><animate attributeName="opacity" values="1;1;0;0" dur="1.06s" begin="19.5s" repeatCount="indefinite" calcMode="discrete"/></rect>
     </g>
 
   </g>

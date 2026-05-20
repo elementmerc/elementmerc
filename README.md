@@ -14,11 +14,11 @@ Dead-channel TV static tunes into signal → a `mercury-os` splash → a ~30-lin
 
 ---
 
-## B · Terminal · Midnight Protocol &nbsp;—&nbsp; the operator login
+## B · Terminal · Midnight Protocol &nbsp;—&nbsp; the blend
 
-Modelled on the login sequence of the hacking game **Midnight Protocol**: power-on → a keyboard-only `MERCURYOS` secure terminal → deliberate operator login (`operator id` + `passphrase`, pseudo-typed) → access granted → the **home screen**. Slower, ~20s, more atmospheric.
+`MERCURYOS` power-on → a Linux boot that stalls on a real `systemd` start-job → hard cut to a deliberate Midnight-Protocol-style operator login (`operator id` + `passphrase`, pseudo-typed) → hard cut to the session, each command followed by an ASCII `[====]` progress bar. ~20s, settles on the profile.
 
-<img src="assets/terminal-midnight.svg" width="100%" alt="Terminal — Midnight Protocol operator login" />
+<img src="assets/terminal-midnight.svg" width="100%" alt="Terminal — Midnight Protocol blend" />
 
 **→ [Open the full design](previews/04-terminal-midnight.md)**
 
