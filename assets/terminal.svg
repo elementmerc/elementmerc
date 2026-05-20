@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-label="Terminal session — whoami for Daniel Iwugo, hacker, writer, creator">
+  <defs>
+    <linearGradient id="tbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#101012"/>
+      <stop offset="1" stop-color="#0a0a0b"/>
+    </linearGradient>
+    <radialGradient id="crt" cx=".5" cy=".5" r=".75">
+      <stop offset=".55" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".55"/>
+    </radialGradient>
+    <pattern id="scan" width="6" height="4" patternUnits="userSpaceOnUse">
+      <rect width="6" height="1.1" fill="#ffffff" opacity=".035"/>
+    </pattern>
+    <filter id="tg" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="2.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      text{font-family:ui-monospace,'SF Mono','Cascadia Mono','DejaVu Sans Mono',Consolas,monospace;}
+      .ln{opacity:0;animation:ln .35s ease forwards}
+      @keyframes ln{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:translateX(0)}}
+      .bk{animation:bk 1.05s steps(1) infinite}
+      @keyframes bk{50%{opacity:0}}
+      .rec{animation:rec 1.8s ease-in-out infinite}
+      @keyframes rec{0%,100%{opacity:.3}50%{opacity:1}}
+    </style>
+  </defs>
+
+  <!-- window -->
+  <rect x="20" y="18" width="1160" height="324" rx="12" fill="url(#tbg)" stroke="#2e2e30" stroke-width="1.5"/>
+
+  <!-- title bar -->
+  <path d="M20 30A12 12 0 0 1 32 18H1168A12 12 0 0 1 1180 30V56H20Z" fill="#161617"/>
+  <line x1="20" y1="56" x2="1180" y2="56" stroke="#2e2e30" stroke-width="1.5"/>
+  <circle cx="48" cy="37" r="6.5" fill="#e0102a"/>
+  <circle cx="72" cy="37" r="6.5" fill="#46464a"/>
+  <circle cx="96" cy="37" r="6.5" fill="#46464a"/>
+  <text x="600" y="42" text-anchor="middle" font-size="13" letter-spacing="1" fill="#8a8a8e">mercury@malware-files : ~/profile — zsh</text>
+  <circle cx="1120" cy="37" r="4.5" fill="#e0102a" class="rec"/>
+  <text x="1156" y="41" text-anchor="end" font-size="11" letter-spacing="2" fill="#8a8a8e">REC</text>
+
+  <!-- body -->
+  <g font-size="16">
+    <text class="ln" x="44" y="100" style="animation-delay:.3s"><tspan fill="#8a8a8e">visitor@github</tspan><tspan fill="#5a5a5e">:</tspan><tspan fill="#e0102a">~/profile</tspan><tspan fill="#f4f4f5"> $ ssh elementmerc@mercury.os</tspan></text>
+    <text class="ln" x="44" y="126" fill="#6f6f73" style="animation-delay:.65s">  · secure channel established — node 0xMERCURY · UTC+01:00</text>
+
+    <text class="ln" x="44" y="160" style="animation-delay:1s"><tspan fill="#8a8a8e">visitor@github</tspan><tspan fill="#5a5a5e">:</tspan><tspan fill="#e0102a">~/profile</tspan><tspan fill="#f4f4f5"> $ whoami</tspan></text>
+    <text class="ln" x="44" y="186" style="animation-delay:1.3s"><tspan fill="#e0102a" font-weight="700" filter="url(#tg)">  Daniel Iwugo</tspan><tspan fill="#f4f4f5">  — hacker // writer // creator</tspan></text>
+
+    <text class="ln" x="44" y="220" style="animation-delay:1.65s"><tspan fill="#8a8a8e">visitor@github</tspan><tspan fill="#5a5a5e">:</tspan><tspan fill="#e0102a">~/profile</tspan><tspan fill="#f4f4f5"> $ cat ./about.txt</tspan></text>
+    <text class="ln" x="44" y="246" fill="#c4c4c6" style="animation-delay:1.95s">  malware researcher · editor @ <tspan fill="#f4f4f5">The Malware Files</tspan> · freeCodeCamp author</text>
+
+    <text class="ln" x="44" y="280" style="animation-delay:2.3s"><tspan fill="#8a8a8e">visitor@github</tspan><tspan fill="#5a5a5e">:</tspan><tspan fill="#e0102a">~/profile</tspan><tspan fill="#f4f4f5"> $ ls ./projects/</tspan></text>
+    <text class="ln" x="44" y="306" style="animation-delay:2.6s"><tspan fill="#e0102a">  anya/  </tspan><tspan fill="#e0102a">stegcore/  </tspan><tspan fill="#e0102a">dct-io/  </tspan><tspan fill="#8a8a8e">hacking-tools/</tspan></text>
+
+    <text class="ln" x="44" y="334" style="animation-delay:2.95s"><tspan fill="#8a8a8e">visitor@github</tspan><tspan fill="#5a5a5e">:</tspan><tspan fill="#e0102a">~/profile</tspan><tspan fill="#f4f4f5"> $ </tspan><tspan fill="#e0102a" class="bk">█</tspan></text>
+  </g>
+
+  <!-- crt overlays -->
+  <rect x="21" y="57" width="1158" height="284" fill="url(#scan)" pointer-events="none"/>
+  <rect x="21" y="57" width="1158" height="2.4" fill="#ffffff" opacity=".06" pointer-events="none">
+    <animate attributeName="y" from="57" to="339" dur="6.5s" repeatCount="indefinite"/>
+  </rect>
+</svg>
