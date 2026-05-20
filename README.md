@@ -1,39 +1,39 @@
 # Profile README — design review
 
-Three directions for the **`elementmerc`** GitHub profile README. Same brand (red / grey / white / near-black), three different structures. Every header is a hand-built **animated SVG** — open each design to see it move.
-
-> **How to view:** click **Open the full design** under any option below. Pick one and we finish it — wire up the auto-updating sections, add the keepalive so it survives untouched for years, and ship it to `README.md` on `main`.
+The **Terminal** direction was chosen. There are now **two terminal variants** to compare — same brand (red / grey / white / near-black), different cold-open. Open each and watch the header animate, then pick one.
 
 ---
 
-## 1 · Mercury OS &nbsp;—&nbsp; the operator console
+## A · Terminal &nbsp;—&nbsp; the boot movie
 
-A live security-console HUD: rotating radar sweep, animated capability readout, a winged *messenger* emblem, a self-filling status bar.
+Dead-channel TV static tunes into signal → a `mercury-os` splash → a ~30-line Linux boot that stalls on a real `systemd` start-job → hard cut to a **tty3 login** (`guest`, mistyped + corrected) → the session types itself out, each command followed by an ASCII `[====]` progress bar.
 
-<img src="assets/mercury-os.svg" width="100%" alt="Mercury OS" />
-
-**→ [Open the full design](previews/01-mercury-os.md)**
-
----
-
-## 2 · Terminal Operator &nbsp;—&nbsp; the hacker shell
-
-A terminal window that types itself out — `ssh`, `whoami`, `ls ./projects` — with a blinking cursor, scanlines and a drifting CRT beam.
-
-<img src="assets/terminal.svg" width="100%" alt="Terminal Operator" />
+<img src="assets/terminal.svg" width="100%" alt="Terminal — boot movie" />
 
 **→ [Open the full design](previews/02-terminal.md)**
 
 ---
 
-## 3 · The Masthead &nbsp;—&nbsp; the field journal
+## B · Terminal · Midnight Protocol &nbsp;—&nbsp; the operator login
 
-An editorial masthead: serif headline, a self-drawing rule, a slowly rotating press seal, a ghosted wordmark behind the type.
+Modelled on the login sequence of the hacking game **Midnight Protocol**: power-on → a keyboard-only `MERCURYOS` secure terminal → deliberate operator login (`operator id` + `passphrase`, pseudo-typed) → access granted → the **home screen**. Slower, ~20s, more atmospheric.
 
-<img src="assets/masthead.svg" width="100%" alt="The Masthead" />
+<img src="assets/terminal-midnight.svg" width="100%" alt="Terminal — Midnight Protocol operator login" />
 
-**→ [Open the full design](previews/03-masthead.md)**
+**→ [Open the full design](previews/04-terminal-midnight.md)**
 
 ---
 
-<sub>Branch: `redesign` · none of this is live on the profile yet — `main` is untouched until a direction is chosen.</sub>
+<details>
+<summary>The three original concepts (where this started)</summary>
+
+<br/>
+
+- **[Mercury OS](previews/01-mercury-os.md)** — security-console HUD
+- **[The Masthead](previews/03-masthead.md)** — editorial field-journal
+
+</details>
+
+---
+
+<sub>Branch: `redesign` · nothing is live on the profile yet — `main` is untouched until a variant is chosen and the auto-updating automation is wired in.</sub>
