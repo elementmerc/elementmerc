@@ -1,0 +1,38 @@
+name: refresh profile
+
+# Runs weekly. The commit is pushed with a personal access token (the
+# RUN_PAT secret) so it counts as repository activity — that is what
+# keeps a scheduled workflow from being switched off after 60 idle days.
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"   # every Monday, 06:17 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.RUN_PAT }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: refresh README and stats
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python tools/refresh.py
+
+      - name: commit
+        run: |
+          git config user.name "Daniel Iwugo"
+          git config user.email "daniel@themalwarefiles.com"
+          git add -A
+          git diff --quiet --cached || git commit -m "chore: weekly profile refresh"
+          git push

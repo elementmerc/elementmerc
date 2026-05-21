@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 212" role="img" aria-label="GitHub stats for elementmerc">
+  <style>text{font-family:ui-monospace,'SF Mono','DejaVu Sans Mono',Consolas,monospace}</style>
+  <rect x="1" y="1" width="718" height="210" rx="14" fill="#0b0b0c" stroke="#2e2e30" stroke-width="1.5"/>
+  <text x="28" y="35" font-size="13" letter-spacing="2" fill="#6f6f73">$ github --stats</text>
+  <text x="692" y="35" text-anchor="end" font-size="13" fill="#8a8a8e">@elementmerc</text>
+  <line x1="28" y1="49" x2="692" y2="49" stroke="#2e2e30" stroke-width="1.5"/>
+  <text x="150" y="113" text-anchor="middle" font-size="44" fill="#f4f4f5">7</text>
+  <text x="150" y="137" text-anchor="middle" font-size="11" letter-spacing="2" fill="#8a8a8e">REPOSITORIES</text>
+  <text x="360" y="113" text-anchor="middle" font-size="44" fill="#e0102a">25</text>
+  <text x="360" y="137" text-anchor="middle" font-size="11" letter-spacing="2" fill="#8a8a8e">STARS EARNED</text>
+  <text x="570" y="113" text-anchor="middle" font-size="44" fill="#f4f4f5">6</text>
+  <text x="570" y="137" text-anchor="middle" font-size="11" letter-spacing="2" fill="#8a8a8e">FOLLOWERS</text>
+  <line x1="28" y1="155" x2="692" y2="155" stroke="#2e2e30" stroke-width="1.5"/>
+  <rect x="28.0" y="172" width="329.0" height="9" rx="2" fill="#e0102a"/><rect x="360.0" y="172" width="163.0" height="9" rx="2" fill="#c4c4c6"/><rect x="526.0" y="172" width="163.0" height="9" rx="2" fill="#7a7a7e"/>
+  <rect x="28.0" y="191" width="9" height="9" rx="2" fill="#e0102a"/><text x="43.0" y="199" font-size="11" fill="#8a8a8e">Rust</text><rect x="95.0" y="191" width="9" height="9" rx="2" fill="#c4c4c6"/><text x="110.0" y="199" font-size="11" fill="#8a8a8e">Python</text><rect x="176.0" y="191" width="9" height="9" rx="2" fill="#7a7a7e"/><text x="191.0" y="199" font-size="11" fill="#8a8a8e">TypeScript</text>
+  <text x="692" y="199" text-anchor="end" font-size="10" letter-spacing="1" fill="#5a5a5e">synced 2026-05-21</text>
+</svg>
