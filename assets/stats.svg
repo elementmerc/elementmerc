@@ -4,7 +4,7 @@
   <text x="28" y="35" font-size="13" letter-spacing="2" fill="#6f6f73">$ github --stats</text>
   <text x="692" y="35" text-anchor="end" font-size="13" fill="#8a8a8e">@elementmerc</text>
   <line x1="28" y1="49" x2="692" y2="49" stroke="#2e2e30" stroke-width="1.5"/>
-  <text x="150" y="113" text-anchor="middle" font-size="44" fill="#f4f4f5">7</text>
+  <text x="150" y="113" text-anchor="middle" font-size="44" fill="#f4f4f5">8</text>
   <text x="150" y="137" text-anchor="middle" font-size="11" letter-spacing="2" fill="#8a8a8e">REPOSITORIES</text>
   <text x="360" y="113" text-anchor="middle" font-size="44" fill="#e0102a">25</text>
   <text x="360" y="137" text-anchor="middle" font-size="11" letter-spacing="2" fill="#8a8a8e">STARS EARNED</text>
