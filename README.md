@@ -22,6 +22,16 @@
 
 I pull software apart to see how intrusions actually happen, build tools around what I find, and write it all up so it's useful to someone other than me. Breaking things to learn, turning that into tooling, sharing the rest: that's been the shape of my work all along, whatever the day's target happens to be.
 
+### `> neofetch`
+
+<div align="center">
+
+<img src="assets/stack.svg" width="98%" alt="Tech stack" />
+
+<img src="assets/stats.svg" width="98%" alt="GitHub stats" />
+
+</div>
+
 ### `> ls ./projects`
 
 ```bash
@@ -33,16 +43,6 @@ drwxr-xr-x   hacking-tools/   # personal security utilities, in Python
 ```
 
 **[anya](https://github.com/elementmerc/anya)** &nbsp;·&nbsp; **[Stegcore](https://github.com/elementmerc/Stegcore)** &nbsp;·&nbsp; **[dct-io](https://github.com/elementmerc/dct-io)** &nbsp;·&nbsp; **[Hacking-Tools](https://github.com/elementmerc/Hacking-Tools)**
-
-### `> neofetch`
-
-<div align="center">
-
-<img src="assets/stack.svg" width="98%" alt="Tech stack" />
-
-<img src="assets/stats.svg" width="98%" alt="GitHub stats" />
-
-</div>
 
 ### `> tail -f ./writing.log`
 
