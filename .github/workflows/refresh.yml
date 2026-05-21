@@ -15,6 +15,7 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
         with:
@@ -23,6 +24,12 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
+
+      # pre-flight: the chaos suite must pass before refresh.py is allowed
+      # to touch the README, so a broken edit fails loudly instead of
+      # committing a corrupted profile
+      - name: self-test
+        run: python tools/test_refresh.py
 
       - name: refresh README and stats
         env:

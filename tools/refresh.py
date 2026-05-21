@@ -14,6 +14,7 @@ import re
 import sys
 import urllib.request
 from xml.etree import ElementTree as ET
+from xml.sax.saxutils import escape
 
 USER = "elementmerc"
 README = "README.md"
@@ -59,6 +60,25 @@ def on_topic(item):
     return any(k in tags for k in TOPICS)
 
 
+def clean_title(raw):
+    """Make a feed title safe to drop verbatim into a markdown list item:
+    one line, no control characters, no angle brackets (which would let a
+    title smuggle in HTML or an AUTO:WRITING marker), no link-breaking
+    brackets, and a sane length."""
+    t = re.sub(r"\s+", " ", raw or "")
+    t = "".join(c for c in t if c >= " ")
+    t = t.replace("<", "").replace(">", "")
+    t = t.replace("[", "(").replace("]", ")").strip()
+    return t[:99].rstrip() + "…" if len(t) > 100 else t
+
+
+def clean_link(raw):
+    """Return the URL only if it is a plain http(s) link with no characters
+    that would break out of a markdown ( ) target."""
+    link = (raw or "").strip().split("?")[0].split("#")[0]
+    return link if re.match(r"https?://[^\s<>()]+\Z", link) else ""
+
+
 def latest_posts():
     """Recent on-topic posts from each feed, newest first, de-duplicated."""
     found = []
@@ -69,8 +89,8 @@ def latest_posts():
             print(f"  feed skipped: {feed} ({e})", file=sys.stderr)
             continue
         for item in root.iter("item"):
-            title = (item.findtext("title") or "").strip()
-            link = (item.findtext("link") or "").strip().split("?")[0]
+            title = clean_title(item.findtext("title"))
+            link = clean_link(item.findtext("link"))
             if title and link and on_topic(item):
                 found.append((parse_date(item.findtext("pubDate")), title, link))
     seen, posts = set(), []
@@ -78,7 +98,7 @@ def latest_posts():
         if link in seen:
             continue
         seen.add(link)
-        posts.append((title.replace("[", "(").replace("]", ")"), link))
+        posts.append((title, link))
     return posts[:MAX_POSTS]
 
 
@@ -87,7 +107,13 @@ def github_stats(token):
     repos = json.loads(
         fetch(f"https://api.github.com/users/{USER}/repos?per_page=100&type=owner", token)
     )
-    own = [r for r in repos if not r.get("fork")]
+    # an error payload (rate limit, outage, 404) is shaped wrong or lacks the
+    # fields we need — raise so main() keeps the last good stats card rather
+    # than regenerating it with zeros
+    if (not isinstance(repos, list) or not isinstance(user, dict)
+            or "public_repos" not in user):
+        raise ValueError("unexpected GitHub API response")
+    own = [r for r in repos if isinstance(r, dict) and not r.get("fork")]
     langs = {}
     for r in own:
         lng = r.get("language")
@@ -112,7 +138,7 @@ def stats_svg(s, today):
         bar.append(f'<rect x="{x:.1f}" y="172" width="{max(w - 3, 2):.1f}" height="9" rx="2" fill="{col}"/>')
         legend.append(
             f'<rect x="{lx:.1f}" y="191" width="9" height="9" rx="2" fill="{col}"/>'
-            f'<text x="{lx + 15:.1f}" y="199" font-size="11" fill="#8a8a8e">{name}</text>'
+            f'<text x="{lx + 15:.1f}" y="199" font-size="11" fill="#8a8a8e">{escape(name)}</text>'
         )
         lx += 15 + len(name) * 7.0 + 24
         x += w

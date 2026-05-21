@@ -1,0 +1,6 @@
+# Python bytecode from running tools/ scripts locally
+__pycache__/
+*.pyc
+
+# Local working notes and reviews — never published on the profile repo
+private/
