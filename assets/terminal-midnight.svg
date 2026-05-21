@@ -21,8 +21,7 @@
   <!-- screen -->
   <rect x="6" y="6" width="1188" height="348" rx="16" fill="#0b0b0c" stroke="#2e2e30" stroke-width="1.5"/>
   <text x="40" y="32" font-size="14" letter-spacing="3" fill="#f4f4f5">MERCURYOS</text>
-  <circle cx="1014" cy="27.5" r="3.5" fill="#e0102a"><animate attributeName="opacity" values="1;.3;1" dur="2s" repeatCount="indefinite"/></circle>
-  <text x="1160" y="32" text-anchor="end" font-size="11.5" letter-spacing="2" fill="#8a8a8e">SECURE NODE · 0xMERCURY · UTC+01:00</text>
+  <text x="1160" y="32" text-anchor="end" font-size="11.5" letter-spacing="2" fill="#8a8a8e">SECURE NODE · Mercury · UTC+01:00</text>
   <line x1="20" y1="46" x2="1180" y2="46" stroke="#2e2e30" stroke-width="1.5"/>
 
   <g clip-path="url(#mbody)">
@@ -91,8 +90,8 @@
       <set attributeName="opacity" to="1" begin="6.9s"/>
       <set attributeName="opacity" to="0" begin="13.5s"/>
       <rect x="8" y="47" width="1184" height="301" fill="#0b0b0c"/>
-      <text x="600" y="96" text-anchor="middle" font-size="13" letter-spacing="3" fill="#8a8a8e" opacity="0"><set attributeName="opacity" to="1" begin="7.1s"/>MERCURYOS // SECURE TERMINAL</text>
-      <line x1="360" y1="116" x2="840" y2="116" stroke="#2e2e30" stroke-width="1.5" stroke-dasharray="480" stroke-dashoffset="480" opacity="0"><set attributeName="opacity" to="1" begin="7.3s"/><animate attributeName="stroke-dashoffset" from="480" to="0" begin="7.3s" dur=".5s" fill="freeze"/></line>
+      <text x="600" y="96" text-anchor="middle" font-size="13" letter-spacing="3" fill="#8a8a8e" opacity="0"><set attributeName="opacity" to="1" begin="7.1s"/>MERCURYOS</text>
+      <text x="600" y="120" text-anchor="middle" font-size="13" letter-spacing="1.5" fill="#5a5a5e" opacity="0"><set attributeName="opacity" to="1" begin="7.3s"/>==================================================</text>
 
       <text x="360" y="165" font-size="16" fill="#8a8a8e" opacity="0"><set attributeName="opacity" to="1" begin="7.7s"/>operator id:</text>
       <text x="494" y="165" font-size="16" fill="#f4f4f5" clip-path="url(#cOpid)">elementmerc</text>
@@ -121,7 +120,7 @@
         <text x="44" y="99" fill="#5a5a5e">[</text><text x="239" y="99" fill="#5a5a5e">]</text>
         <text x="51.8" y="99" fill="#e0102a" clip-path="url(#cBar1)">========================</text>
       </g>
-      <text x="44" y="120" fill="#6f6f73" opacity="0"><set attributeName="opacity" to="1" begin="15.4s"/>  · secure channel established — UTC+01:00 · node <tspan fill="#c4c4c6">0xMERCURY</tspan></text>
+      <text x="44" y="120" fill="#6f6f73" opacity="0"><set attributeName="opacity" to="1" begin="15.4s"/>  · secure channel established — UTC+01:00 · node <tspan fill="#c4c4c6">Mercury</tspan></text>
 
       <text x="44" y="141" opacity="0"><set attributeName="opacity" to="1" begin="15.55s"/><tspan fill="#8a8a8e">elementmerc</tspan><tspan fill="#5a5a5e">@</tspan><tspan fill="#e0102a">mercuryos</tspan><tspan fill="#f4f4f5">:~$ </tspan></text>
       <text x="239" y="141" fill="#f4f4f5" clip-path="url(#c2)">whoami</text>
