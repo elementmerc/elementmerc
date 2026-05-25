@@ -121,7 +121,8 @@ class Fetcher:
             raise self.feed_exc
         return self.feed
 
-    def graphql_call(self, query, token=None):
+    def graphql_call(self, query, token=None, variables=None):
+        self.last_graphql = (query, variables)
         if self.api_exc:
             raise self.api_exc
         if self.graphql_exc:
@@ -587,6 +588,18 @@ def _():
     res = run(Fetcher(feed=rss([]), languages_exc=urllib.error.URLError("down")))
     assert_no_crash(res)
     ET.fromstring(res.stats)  # langs fall back to the default placeholder
+
+
+@test("contributions GraphQL query is parameterised, not string-concatenated")
+def _():
+    # Guards against a future maintainer reverting the $login variable to
+    # string concatenation — that'd be a (latent) GraphQL injection footgun.
+    f = Fetcher(feed=rss([]))
+    res = run(f)
+    assert_no_crash(res)
+    query, variables = f.last_graphql
+    assert "$login" in query, f"query must use a $login variable: {query!r}"
+    assert variables == {"login": "elementmerc"}, f"variables wrong: {variables!r}"
 
 
 @test("GraphQL contributions failure -> stats card kept (last good)")

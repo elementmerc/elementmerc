@@ -21,6 +21,10 @@ USER = "elementmerc"
 # The-Malware-Files (dokima, model-security-core, …) is genuinely co-owned;
 # adding it here folds it into REPOSITORIES / STARS / language pie.
 ORGS = ("The-Malware-Files",)
+# Extra entities for xml.sax.saxutils.escape — its default only covers
+# < > &. Quote escaping costs nothing and makes the helper safe if a value
+# is ever interpolated into an SVG attribute rather than text content.
+_SVG_TEXT_ESCAPES = {'"': "&quot;", "'": "&apos;"}
 README = "README.md"
 STATS = "assets/stats.svg"
 FEEDS = [
@@ -38,9 +42,12 @@ def fetch(url, token=None):
         return r.read()
 
 
-def fetch_graphql(query, token):
-    """POST a GraphQL query and return the raw response bytes."""
-    body = json.dumps({"query": query}).encode()
+def fetch_graphql(query, token, variables=None):
+    """POST a GraphQL query (with optional variables) and return raw bytes."""
+    payload = {"query": query}
+    if variables:
+        payload["variables"] = variables
+    body = json.dumps(payload).encode()
     req = urllib.request.Request(
         "https://api.github.com/graphql",
         data=body,
@@ -159,10 +166,10 @@ def github_stats(token):
     # don't belong on a public profile card. Captures upstream work (e.g.
     # PRs into MalChela) that the REST repos list cannot see.
     gql = json.loads(fetch_graphql(
-        'query { user(login: "' + USER + '") { contributionsCollection { '
+        'query($login: String!) { user(login: $login) { contributionsCollection { '
         'totalCommitContributions totalIssueContributions '
         'totalPullRequestContributions totalPullRequestReviewContributions } } }',
-        token))
+        token, variables={"login": USER}))
     if "errors" in gql or not isinstance(gql.get("data"), dict):
         raise ValueError(f"GraphQL contributions query failed: {gql.get('errors', gql)}")
     c = gql["data"]["user"]["contributionsCollection"]
@@ -211,7 +218,7 @@ def stats_svg(s, today):
         bar.append(f'<rect x="{x:.1f}" y="172" width="{max(w - 3, 2):.1f}" height="9" rx="2" fill="{col}"/>')
         legend.append(
             f'<rect x="{lx:.1f}" y="191" width="9" height="9" rx="2" fill="{col}"/>'
-            f'<text x="{lx + 15:.1f}" y="199" font-size="11" fill="#8a8a8e">{escape(name)}</text>'
+            f'<text x="{lx + 15:.1f}" y="199" font-size="11" fill="#8a8a8e">{escape(name, _SVG_TEXT_ESCAPES)}</text>'
         )
         lx += 15 + len(name) * 7.0 + 24
         x += w
