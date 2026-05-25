@@ -136,43 +136,65 @@ def github_stats(token):
 
     # Org public repos count as the user's too. An individual org being
     # unreachable degrades to "skip that org" rather than wiping the card.
-    all_repos = list(repos)
+    owned_nonforks = [r for r in repos if isinstance(r, dict) and not r.get("fork")]
+    org_nonforks = []
     for org in ORGS:
         try:
             org_repos = json.loads(
                 fetch(f"https://api.github.com/orgs/{org}/repos?per_page=100&type=public", token)
             )
             if isinstance(org_repos, list):
-                all_repos.extend(r for r in org_repos if isinstance(r, dict))
+                org_nonforks.extend(
+                    r for r in org_repos if isinstance(r, dict) and not r.get("fork"))
             else:
                 print(f"  org repos skipped: {org} (unexpected shape)", file=sys.stderr)
         except Exception as e:
             print(f"  org repos skipped: {org} ({e})", file=sys.stderr)
 
-    own = [r for r in all_repos if isinstance(r, dict) and not r.get("fork")]
+    own = owned_nonforks + org_nonforks  # the set stars and the language pie sum over
 
-    # Public contributions across all of GitHub (commits, PRs, issues,
-    # reviews) over the trailing year — same number the profile page shows.
-    # Captures upstream work (e.g. PRs into MalChela) that the REST repos
-    # list cannot see.
+    # Public contributions across all of GitHub over the trailing year, by
+    # type. Sum, deliberately, instead of the calendar's totalContributions:
+    # the calendar number folds in private/restricted contributions, which
+    # don't belong on a public profile card. Captures upstream work (e.g.
+    # PRs into MalChela) that the REST repos list cannot see.
     gql = json.loads(fetch_graphql(
-        'query { user(login: "' + USER + '") { contributionsCollection '
-        '{ contributionCalendar { totalContributions } } } }', token))
+        'query { user(login: "' + USER + '") { contributionsCollection { '
+        'totalCommitContributions totalIssueContributions '
+        'totalPullRequestContributions totalPullRequestReviewContributions } } }',
+        token))
     if "errors" in gql or not isinstance(gql.get("data"), dict):
         raise ValueError(f"GraphQL contributions query failed: {gql.get('errors', gql)}")
+    c = gql["data"]["user"]["contributionsCollection"]
     contributions = (
-        gql["data"]["user"]["contributionsCollection"]
-           ["contributionCalendar"]["totalContributions"]
+        c["totalCommitContributions"] + c["totalIssueContributions"]
+        + c["totalPullRequestContributions"] + c["totalPullRequestReviewContributions"]
     )
 
+    # Languages by bytes across every counted repo, not by primary-language
+    # count. The primary-language field is one-per-repo, so a language that
+    # is second-place everywhere (e.g. TypeScript when Rust always wins by
+    # bytes) never shows. The /languages endpoint returns the byte map.
     langs = {}
     for r in own:
-        lng = r.get("language")
-        if lng:
-            langs[lng] = langs.get(lng, 0) + 1
+        full = r.get("full_name")
+        if not full:
+            continue
+        try:
+            payload = json.loads(
+                fetch(f"https://api.github.com/repos/{full}/languages", token))
+            if isinstance(payload, dict):
+                for lng, n in payload.items():
+                    if isinstance(n, int):
+                        langs[lng] = langs.get(lng, 0) + n
+        except Exception as e:
+            print(f"  languages skipped: {full} ({e})", file=sys.stderr)
     top = sorted(langs.items(), key=lambda kv: -kv[1])[:4]
     return {
-        "repos": len(own),
+        # match the github.com profile page count (user's own public repos,
+        # forks included) and add org public non-forks on top so the number
+        # is always a superset of what the profile shows
+        "repos": user["public_repos"] + len(org_nonforks),
         "stars": sum(r.get("stargazers_count", 0) for r in own),
         "contributions": contributions,
         "langs": top or [("—", 1)],

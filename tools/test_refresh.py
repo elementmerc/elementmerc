@@ -44,12 +44,16 @@ footer line
 """
 
 VALID_USER = b'{"public_repos":9,"followers":21}'
-VALID_REPOS = (b'[{"fork":false,"stargazers_count":4,"language":"Rust"},'
-               b'{"fork":false,"stargazers_count":2,"language":"Python"},'
-               b'{"fork":true,"stargazers_count":99,"language":"C"}]')
-VALID_ORG_REPOS = b'[{"fork":false,"stargazers_count":7,"language":"Rust"}]'
-VALID_GRAPHQL = (b'{"data":{"user":{"contributionsCollection":'
-                 b'{"contributionCalendar":{"totalContributions":1234}}}}}')
+VALID_REPOS = (b'[{"fork":false,"full_name":"u/r1","stargazers_count":4,"language":"Rust"},'
+               b'{"fork":false,"full_name":"u/r2","stargazers_count":2,"language":"Python"},'
+               b'{"fork":true,"full_name":"u/r3","stargazers_count":99,"language":"C"}]')
+VALID_ORG_REPOS = b'[{"fork":false,"full_name":"o/r1","stargazers_count":7,"language":"Rust"}]'
+VALID_GRAPHQL = (b'{"data":{"user":{"contributionsCollection":{'
+                 b'"totalCommitContributions":1000,'
+                 b'"totalIssueContributions":34,'
+                 b'"totalPullRequestContributions":150,'
+                 b'"totalPullRequestReviewContributions":50}}}}')
+VALID_LANGUAGES = b'{}'
 
 
 # --------------------------------------------------------------------------
@@ -83,17 +87,24 @@ class Fetcher:
 
     def __init__(self, feed=None, per_feed=None, feed_exc=None,
                  user=VALID_USER, repos=VALID_REPOS, org_repos=VALID_ORG_REPOS,
-                 graphql=VALID_GRAPHQL, api_exc=None,
-                 org_repos_exc=None, graphql_exc=None):
+                 graphql=VALID_GRAPHQL, languages=VALID_LANGUAGES, api_exc=None,
+                 org_repos_exc=None, graphql_exc=None, languages_exc=None):
         self.feed, self.per_feed, self.feed_exc = feed, per_feed, feed_exc
         self.user, self.repos, self.org_repos = user, repos, org_repos
-        self.graphql, self.api_exc = graphql, api_exc
-        self.org_repos_exc, self.graphql_exc = org_repos_exc, graphql_exc
+        self.graphql, self.languages = graphql, languages
+        self.api_exc = api_exc
+        self.org_repos_exc = org_repos_exc
+        self.graphql_exc = graphql_exc
+        self.languages_exc = languages_exc
 
     def __call__(self, url, token=None):
         if "api.github.com" in url:
             if self.api_exc:
                 raise self.api_exc
+            if "/languages" in url:
+                if self.languages_exc:
+                    raise self.languages_exc
+                return self.languages
             if "/orgs/" in url and "/repos" in url:
                 if self.org_repos_exc:
                     raise self.org_repos_exc
@@ -529,9 +540,9 @@ def _():
     assert_no_crash(res)
     ET.fromstring(res.stats)
     assert res.stats != SEED_SVG
-    # owned non-forks (2) + org non-forks (1) = 3 repos, 4+2+7 = 13 stars,
-    # and the GraphQL stub returns 1234 contributions
-    assert ">3<" in res.stats
+    # repos = user.public_repos (9) + 1 org non-fork = 10; stars = 4+2+7 = 13;
+    # contributions = 1000+34+150+50 = 1234
+    assert ">10<" in res.stats
     assert ">13<" in res.stats
     assert ">1234<" in res.stats
 
@@ -539,11 +550,11 @@ def _():
 @test("org repos and their stars are aggregated into the card")
 def _():
     res = run(Fetcher(feed=rss([]),
-                      org_repos=b'[{"fork":false,"stargazers_count":50,"language":"Go"},'
-                                b'{"fork":false,"stargazers_count":25,"language":"Rust"}]'))
+                      org_repos=b'[{"fork":false,"full_name":"O/A","stargazers_count":50,"language":"Go"},'
+                                b'{"fork":false,"full_name":"O/B","stargazers_count":25,"language":"Rust"}]'))
     assert_no_crash(res)
-    # 2 owned non-forks + 2 org non-forks = 4, stars = 4+2+50+25 = 81
-    assert ">4<" in res.stats
+    # repos = 9 + 2 org non-forks = 11; stars = 4+2+50+25 = 81
+    assert ">11<" in res.stats
     assert ">81<" in res.stats
 
 
@@ -552,10 +563,30 @@ def _():
     res = run(Fetcher(feed=rss([]),
                       org_repos_exc=urllib.error.URLError("org gone")))
     assert_no_crash(res)
-    # the org loop fell through; only owned non-forks counted (2 repos, 6 stars)
-    assert ">2<" in res.stats
+    # repos = user.public_repos only (9); stars = owned non-forks (4+2=6)
+    assert ">9<" in res.stats
     assert ">6<" in res.stats
     assert ">1234<" in res.stats          # contributions still surfaces
+
+
+@test("language pie aggregates bytes across repos (catches secondary languages)")
+def _():
+    # The /languages endpoint returns the same map for every repo here. The
+    # point: TypeScript is *secondary* to Rust on every individual repo, yet
+    # it must still appear in the legend because we aggregate by bytes, not
+    # by per-repo primary language.
+    res = run(Fetcher(feed=rss([]),
+                      languages=b'{"Rust":1000,"TypeScript":600,"Python":100}'))
+    assert_no_crash(res)
+    for lang in ("Rust", "TypeScript", "Python"):
+        assert f'>{lang}</text>' in res.stats, f"missing language {lang}"
+
+
+@test("languages endpoint failure on every repo doesn't crash the card")
+def _():
+    res = run(Fetcher(feed=rss([]), languages_exc=urllib.error.URLError("down")))
+    assert_no_crash(res)
+    ET.fromstring(res.stats)  # langs fall back to the default placeholder
 
 
 @test("GraphQL contributions failure -> stats card kept (last good)")
