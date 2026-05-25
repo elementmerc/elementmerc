@@ -17,6 +17,10 @@ from xml.etree import ElementTree as ET
 from xml.sax.saxutils import escape
 
 USER = "elementmerc"
+# Orgs whose public repos count as "mine" for the stats card. The work in
+# The-Malware-Files (dokima, model-security-core, …) is genuinely co-owned;
+# adding it here folds it into REPOSITORIES / STARS / language pie.
+ORGS = ("The-Malware-Files",)
 README = "README.md"
 STATS = "assets/stats.svg"
 FEEDS = [
@@ -28,6 +32,22 @@ MAX_POSTS = 5
 
 def fetch(url, token=None):
     req = urllib.request.Request(url, headers={"User-Agent": "mercury-profile-refresh"})
+    if token:
+        req.add_header("Authorization", "Bearer " + token)
+    with urllib.request.urlopen(req, timeout=25) as r:
+        return r.read()
+
+
+def fetch_graphql(query, token):
+    """POST a GraphQL query and return the raw response bytes."""
+    body = json.dumps({"query": query}).encode()
+    req = urllib.request.Request(
+        "https://api.github.com/graphql",
+        data=body,
+        method="POST",
+        headers={"User-Agent": "mercury-profile-refresh",
+                 "Content-Type": "application/json"},
+    )
     if token:
         req.add_header("Authorization", "Bearer " + token)
     with urllib.request.urlopen(req, timeout=25) as r:
@@ -113,7 +133,38 @@ def github_stats(token):
     if (not isinstance(repos, list) or not isinstance(user, dict)
             or "public_repos" not in user):
         raise ValueError("unexpected GitHub API response")
-    own = [r for r in repos if isinstance(r, dict) and not r.get("fork")]
+
+    # Org public repos count as the user's too. An individual org being
+    # unreachable degrades to "skip that org" rather than wiping the card.
+    all_repos = list(repos)
+    for org in ORGS:
+        try:
+            org_repos = json.loads(
+                fetch(f"https://api.github.com/orgs/{org}/repos?per_page=100&type=public", token)
+            )
+            if isinstance(org_repos, list):
+                all_repos.extend(r for r in org_repos if isinstance(r, dict))
+            else:
+                print(f"  org repos skipped: {org} (unexpected shape)", file=sys.stderr)
+        except Exception as e:
+            print(f"  org repos skipped: {org} ({e})", file=sys.stderr)
+
+    own = [r for r in all_repos if isinstance(r, dict) and not r.get("fork")]
+
+    # Public contributions across all of GitHub (commits, PRs, issues,
+    # reviews) over the trailing year — same number the profile page shows.
+    # Captures upstream work (e.g. PRs into MalChela) that the REST repos
+    # list cannot see.
+    gql = json.loads(fetch_graphql(
+        'query { user(login: "' + USER + '") { contributionsCollection '
+        '{ contributionCalendar { totalContributions } } } }', token))
+    if "errors" in gql or not isinstance(gql.get("data"), dict):
+        raise ValueError(f"GraphQL contributions query failed: {gql.get('errors', gql)}")
+    contributions = (
+        gql["data"]["user"]["contributionsCollection"]
+           ["contributionCalendar"]["totalContributions"]
+    )
+
     langs = {}
     for r in own:
         lng = r.get("language")
@@ -121,9 +172,9 @@ def github_stats(token):
             langs[lng] = langs.get(lng, 0) + 1
     top = sorted(langs.items(), key=lambda kv: -kv[1])[:4]
     return {
-        "repos": user.get("public_repos", len(repos)),
-        "followers": user.get("followers", 0),
+        "repos": len(own),
         "stars": sum(r.get("stargazers_count", 0) for r in own),
+        "contributions": contributions,
         "langs": top or [("—", 1)],
     }
 
@@ -152,8 +203,8 @@ def stats_svg(s, today):
   <text x="150" y="137" text-anchor="middle" font-size="11" letter-spacing="2" fill="#8a8a8e">REPOSITORIES</text>
   <text x="360" y="113" text-anchor="middle" font-size="44" fill="#e0102a">{s["stars"]}</text>
   <text x="360" y="137" text-anchor="middle" font-size="11" letter-spacing="2" fill="#8a8a8e">STARS EARNED</text>
-  <text x="570" y="113" text-anchor="middle" font-size="44" fill="#f4f4f5">{s["followers"]}</text>
-  <text x="570" y="137" text-anchor="middle" font-size="11" letter-spacing="2" fill="#8a8a8e">FOLLOWERS</text>
+  <text x="570" y="113" text-anchor="middle" font-size="44" fill="#f4f4f5">{s["contributions"]}</text>
+  <text x="570" y="137" text-anchor="middle" font-size="11" letter-spacing="2" fill="#8a8a8e">CONTRIBUTIONS</text>
   <line x1="28" y1="155" x2="692" y2="155" stroke="#2e2e30" stroke-width="1.5"/>
   {"".join(bar)}
   {"".join(legend)}

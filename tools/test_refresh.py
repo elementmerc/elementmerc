@@ -47,6 +47,9 @@ VALID_USER = b'{"public_repos":9,"followers":21}'
 VALID_REPOS = (b'[{"fork":false,"stargazers_count":4,"language":"Rust"},'
                b'{"fork":false,"stargazers_count":2,"language":"Python"},'
                b'{"fork":true,"stargazers_count":99,"language":"C"}]')
+VALID_ORG_REPOS = b'[{"fork":false,"stargazers_count":7,"language":"Rust"}]'
+VALID_GRAPHQL = (b'{"data":{"user":{"contributionsCollection":'
+                 b'{"contributionCalendar":{"totalContributions":1234}}}}}')
 
 
 # --------------------------------------------------------------------------
@@ -76,18 +79,28 @@ def atom(items):
 
 
 class Fetcher:
-    """Stand-in for refresh.fetch, dispatching on URL."""
+    """Stand-in for refresh.fetch and refresh.fetch_graphql, dispatching on URL."""
 
     def __init__(self, feed=None, per_feed=None, feed_exc=None,
-                 user=VALID_USER, repos=VALID_REPOS, api_exc=None):
+                 user=VALID_USER, repos=VALID_REPOS, org_repos=VALID_ORG_REPOS,
+                 graphql=VALID_GRAPHQL, api_exc=None,
+                 org_repos_exc=None, graphql_exc=None):
         self.feed, self.per_feed, self.feed_exc = feed, per_feed, feed_exc
-        self.user, self.repos, self.api_exc = user, repos, api_exc
+        self.user, self.repos, self.org_repos = user, repos, org_repos
+        self.graphql, self.api_exc = graphql, api_exc
+        self.org_repos_exc, self.graphql_exc = org_repos_exc, graphql_exc
 
     def __call__(self, url, token=None):
         if "api.github.com" in url:
             if self.api_exc:
                 raise self.api_exc
-            return self.repos if "/repos" in url else self.user
+            if "/orgs/" in url and "/repos" in url:
+                if self.org_repos_exc:
+                    raise self.org_repos_exc
+                return self.org_repos
+            if "/repos" in url:
+                return self.repos
+            return self.user
         if self.per_feed is not None:
             val = self.per_feed.get(url)
             if isinstance(val, BaseException):
@@ -96,6 +109,13 @@ class Fetcher:
         if self.feed_exc:
             raise self.feed_exc
         return self.feed
+
+    def graphql_call(self, query, token=None):
+        if self.api_exc:
+            raise self.api_exc
+        if self.graphql_exc:
+            raise self.graphql_exc
+        return self.graphql
 
 
 class Result:
@@ -112,6 +132,7 @@ def run(fetch, readme=FIXTURE, stats=SEED_SVG):
     cwd = os.getcwd()
     os.chdir(d)
     refresh.fetch = fetch
+    refresh.fetch_graphql = fetch.graphql_call
     buf = io.StringIO()
     err = None
     try:
@@ -254,19 +275,19 @@ def _():
 # ---- unit: stats_svg -----------------------------------------------------
 @test("stats_svg output is well-formed XML for normal input")
 def _():
-    s = {"repos": 9, "stars": 6, "followers": 21, "langs": [("Rust", 2), ("Python", 1)]}
+    s = {"repos": 9, "stars": 6, "contributions": 1200, "langs": [("Rust", 2), ("Python", 1)]}
     ET.fromstring(refresh.stats_svg(s, "2026-05-21"))
 
 
 @test("stats_svg escapes language names containing < > & \" '")
 def _():
-    s = {"repos": 1, "stars": 0, "followers": 0, "langs": [('<b>&"evil\'', 1)]}
+    s = {"repos": 1, "stars": 0, "contributions": 0, "langs": [('<b>&"evil\'', 1)]}
     ET.fromstring(refresh.stats_svg(s, "2026-05-21"))  # must not raise
 
 
 @test("stats_svg survives huge numbers and the default language")
 def _():
-    s = {"repos": 999999, "stars": 888888, "followers": 777777, "langs": [("—", 1)]}
+    s = {"repos": 999999, "stars": 888888, "contributions": 777777, "langs": [("—", 1)]}
     ET.fromstring(refresh.stats_svg(s, "2026-05-21"))
 
 
@@ -508,7 +529,55 @@ def _():
     assert_no_crash(res)
     ET.fromstring(res.stats)
     assert res.stats != SEED_SVG
-    assert ">9<" in res.stats             # public_repos surfaced
+    # owned non-forks (2) + org non-forks (1) = 3 repos, 4+2+7 = 13 stars,
+    # and the GraphQL stub returns 1234 contributions
+    assert ">3<" in res.stats
+    assert ">13<" in res.stats
+    assert ">1234<" in res.stats
+
+
+@test("org repos and their stars are aggregated into the card")
+def _():
+    res = run(Fetcher(feed=rss([]),
+                      org_repos=b'[{"fork":false,"stargazers_count":50,"language":"Go"},'
+                                b'{"fork":false,"stargazers_count":25,"language":"Rust"}]'))
+    assert_no_crash(res)
+    # 2 owned non-forks + 2 org non-forks = 4, stars = 4+2+50+25 = 81
+    assert ">4<" in res.stats
+    assert ">81<" in res.stats
+
+
+@test("an unreachable org is skipped; owned data still updates")
+def _():
+    res = run(Fetcher(feed=rss([]),
+                      org_repos_exc=urllib.error.URLError("org gone")))
+    assert_no_crash(res)
+    # the org loop fell through; only owned non-forks counted (2 repos, 6 stars)
+    assert ">2<" in res.stats
+    assert ">6<" in res.stats
+    assert ">1234<" in res.stats          # contributions still surfaces
+
+
+@test("GraphQL contributions failure -> stats card kept (last good)")
+def _():
+    res = run(Fetcher(feed=rss([]), graphql_exc=urllib.error.URLError("graphql down")))
+    assert_no_crash(res)
+    assert res.stats == SEED_SVG
+
+
+@test("GraphQL 'errors' response -> stats card kept")
+def _():
+    res = run(Fetcher(feed=rss([]),
+                      graphql=b'{"errors":[{"message":"Bad credentials"}]}'))
+    assert_no_crash(res)
+    assert res.stats == SEED_SVG
+
+
+@test("GraphQL response missing data -> stats card kept")
+def _():
+    res = run(Fetcher(feed=rss([]), graphql=b'{"data":null}'))
+    assert_no_crash(res)
+    assert res.stats == SEED_SVG
 
 
 # ---- integration: README structure / idempotency -------------------------
