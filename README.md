@@ -60,4 +60,4 @@ drwxr-xr-x   hacking-tools/   # personal security utilities, in Python
 <sub><code>MERCURYOS · node: Github</code></sub>
 </div>
 
-<!-- synced: 2026-05-25 -->
+<!-- synced: 2026-06-01 -->
