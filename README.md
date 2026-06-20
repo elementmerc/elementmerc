@@ -35,14 +35,15 @@ I pull software apart to see how intrusions actually happen, build tools around 
 ### `> ls ./projects`
 
 ```bash
-drwxr-xr-x   anya/            # malware analysis platform, in Rust
+drwxr-xr-x   dokima/          # AI model trustworthiness, in Rust
 drwxr-xr-x   stegcore/        # hides encrypted data in images and audio
-drwxr-xr-x   dct-io/          # Rust library for embedding data in JPEGs
-drwxr-xr-x   hacking-tools/   # personal security utilities, in Python
+drwxr-xr-x   malchela/        # YARA & malware analysis — contributing upstream
+drwxr-xr-x   dct-io/          # Rust crate for JPEG coefficient I/O
+drwxr-xr-x   flac-io/         # Rust crate for FLAC audio I/O
 -rw-r--r--   writeups.md      # articles, notes and research
 ```
 
-**[anya](https://github.com/elementmerc/anya)** &nbsp;·&nbsp; **[Stegcore](https://github.com/elementmerc/Stegcore)** &nbsp;·&nbsp; **[dct-io](https://github.com/elementmerc/dct-io)** &nbsp;·&nbsp; **[Hacking-Tools](https://github.com/elementmerc/Hacking-Tools)**
+**[Dokima](https://github.com/The-Malware-Files/dokima)** &nbsp;·&nbsp; **[Stegcore](https://github.com/The-Malware-Files/Stegcore)** &nbsp;·&nbsp; **[MalChela](https://github.com/dwmetz/MalChela)** &nbsp;·&nbsp; **[dct-io](https://github.com/elementmerc/dct-io)** &nbsp;·&nbsp; **[flac-io](https://github.com/elementmerc/flac-io)**
 
 ### `> tail -f ./writing.log`
 
