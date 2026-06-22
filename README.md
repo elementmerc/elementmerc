@@ -61,4 +61,4 @@ drwxr-xr-x   flac-io/         # Rust crate for FLAC audio I/O
 <sub><code>MERCURYOS · node: Github</code></sub>
 </div>
 
-<!-- synced: 2026-06-15 -->
+<!-- synced: 2026-06-22 -->
